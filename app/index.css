@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+}
+
+/* @theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+} */
+
+/* html,
+body {
+  @apply bg-white dark:bg-gray-950;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+} */
+
+
+.container {
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+.inputValue {
+    max-width: fit-content;
+}
+.inputLabel {
+    max-width: fit-content;
+}
+
+.display-linebreak {
+  white-space: pre-line;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+/* Form */
+.form {
+  position: relative;
+  gap: 0.5rem;
+}
+
+input[type='text'] {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: 0.2s ease;
+  width: 100%;
+}
+
+input[type='text']:focus {
+  border-color: #0077ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+}
+
+button {
+  padding: 0.75rem 1.2rem;
+  font-size: 1rem;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
