@@ -13,7 +13,7 @@ const EntityPage = ({ loaderData }: Route.ComponentProps) => {
     return (<>
     <div className="flex flex-col bg-gray-300 m-2 p-2 rounded-lg">    
         {entities.map(entity => (
-            <div>{ entity.name }</div>        
+            <NavLink to={`/entities/${entity.id}`} className="hover:bg-gray-400">{ entity.name }</NavLink>        
         ))}
     </div>
     </> );
