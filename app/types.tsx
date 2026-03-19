@@ -37,7 +37,8 @@ export type EntityDetails = {
 
 export type NoticeGroup = {
     id: string;
-    firstNotice: string
+    firstNotice: string;
+    notices?: Array<Notice>;
 }
 
 export type Notice = {
@@ -49,8 +50,15 @@ export type Notice = {
     ojsNumber: string;
     procedureIdentifier: string;
     noticeGroup: string;
-    formType: string;
+    formType: FormType;
     entityId: string;
     noticeType: string;
     procedureDescription: string;
+    noticeTitle: string;
+}
+
+export type FormType = {
+    id: string; 
+    code: string;
+    description?: string;
 }

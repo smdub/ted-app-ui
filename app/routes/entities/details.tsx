@@ -46,6 +46,28 @@ const EntityDetailsPage = ({ loaderData }: EntityDetailsComponentProps) => {
             <div className="col-3"><h3>{ entity?.noticeGroups?.length }</h3></div>            
         </div>
     </div>
+<div className="flex flex-col bg-gray-300 m-2 p-2 rounded-lg flex-">
+    
+     {entity.noticeGroups!.map(noticeGroup => (
+        <div className="flex flex-row">
+            <div className="bg-gray-100 p-2 m-2 rounded-2xl col-1">Contract: { noticeGroup.id }
+                { noticeGroup!.notices!.map(notice => (
+                    <div className="bg-gray-100 p-2 m-2 rounded-2xl border-2" key={ notice.id }>
+                    <div className="flex flex-row">
+                        <div className="bg-gray-100 p-2 m-2 rounded-2xl col-start-1">Notice: { notice.noticeNumber } - { notice!.formType!.code}
+                        </div>
+                     </div>
+                    <div className="flex flex-row">
+                        <div className="bg-gray-100 p-2 m-2 rounded-2xl col-start-1"> { notice.noticeTitle }
+                        </div>
+                     </div>
+                     </div>
+                     
+                ))}
+            </div>        
+        </div>
+        ))}
+        </div>
     </> );
       
 }
