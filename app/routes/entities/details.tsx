@@ -31,6 +31,11 @@ const classFromFormType = (formType: string): string => {
     return "bg-gray-200";
 }
 
+const dateToString = (date: Date): string => {
+    const dateValue = new Date(date);
+    return dateValue.toDateString();
+}
+
 const EntityDetailsPage = ({ loaderData }: EntityDetailsComponentProps) => {    
     const entity = loaderData;  
     return (<>
@@ -65,11 +70,15 @@ const EntityDetailsPage = ({ loaderData }: EntityDetailsComponentProps) => {
                 { noticeGroup!.notices!.map(notice => (
                     <div className="bg-gray-100 p-2 m-2 rounded-2xl border-2" key={ notice.id }>
                     <div className="flex flex-row">
-                        <div className={`${classFromFormType(notice.formType.code)} p-2 m-2 rounded-2xl col-start-1 border-b-2`}>Notice: { notice.noticeNumber } - { notice!.formType!.code}
+                        <div className={`${classFromFormType(notice.formType.code)} p-2 m-2 rounded-2xl col-start-1 border-b-2`}>Notice: { notice.noticeNumber } - { notice!.formType!.description}
                         </div>
                      </div>
                     <div className="flex flex-row">
-                        <div className="p-2 m-2 rounded-2xl col-start-1">Total value: { notice.totalValue?.toLocaleString() }
+                        <div className="pl-2 pr-2 ml-2 italic text-sm col-start-1">{ dateToString(notice.publicationDate) }
+                        </div>
+                     </div>
+                    <div className="flex flex-row">
+                        <div className="p-2 m-2 rounded-2xl col-start-1">Total value: <span className="font-bold">{ notice.totalValue?.toLocaleString() }</span>
                         </div>
                      </div>
                     <div className="flex flex-row">
@@ -77,11 +86,16 @@ const EntityDetailsPage = ({ loaderData }: EntityDetailsComponentProps) => {
                         </div>
                      </div>
                       <div className="flex flex-row">
-                        <div className="p-2 m-2 rounded-2xl col-start-1"><a href={`${ notice.linkEngPdf }`}> PDF Link</a>
+                        <div className="p-2 m-2 rounded-2xl text-blue-700 underline col-start-1"><a href={`${ notice.linkEngPDF }`}> {notice.linkEngPDF}</a>
                         </div>
                      </div>
-                </div>
-                     
+                     { notice.originalNotice ? (
+                        <div className="flex flex-row">
+                            <div className="bg-gray-300 p-2 m-2 rounded-2xl col-start-1 border-b-2">Linked: { notice.originalNotice }
+                            </div>
+                        </div>
+                     ) : ""}
+                     </div>                                     
                 ))}
             </div>        
         </div>

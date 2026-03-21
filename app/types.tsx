@@ -55,8 +55,9 @@ export type Notice = {
     noticeType: string;
     procedureDescription: string;
     noticeTitle: string;
-    linkEngPdf: string;
+    linkEngPDF: string;
     totalValue: number;
+    publicationDate: Date;
 }
 
 export type FormType = {
