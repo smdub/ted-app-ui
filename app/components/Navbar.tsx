@@ -1,8 +1,9 @@
 import { NavLink } from "react-router";
 import { FaLaptopCode } from "react-icons/fa";
+import { useState } from "react";
 
 const Navbar = () => {
-    
+    const [menuOpen, setMenuOpen] = useState(false);
     const base = "transition hover: text-blue-400";
     const active = "text-blue-400 font-semibold";
 
@@ -19,8 +20,35 @@ const Navbar = () => {
                     <NavLink to='/search' className={({ isActive }) => isActive ?  active : base }>Search</NavLink>
                     <NavLink to='/about' className={({ isActive }) => isActive ?  active : base }>About</NavLink>
                 </div>
-                
             </div>
+            {/* Mobile Nav */}
+        {
+            menuOpen && (
+                <div className="md:hidden bg-gray-800 border-t border-gray-700 px-6 py-4 space-y-2 space-x-4 text-center text-gray-300">
+                    <NavLink 
+                        className={({ isActive }) => isActive ? active : base } 
+                        to='/'
+                        onClick={() => setMenuOpen(false) }>Home</NavLink>
+                    <NavLink 
+                        className={({ isActive }) => isActive ? active : base } 
+                        to='/entities'
+                        onClick={() => setMenuOpen(false) }>Entites</NavLink>
+                    <NavLink 
+                        className={({ isActive }) => isActive ? active : base } 
+                        to='/search'
+                        onClick={() => setMenuOpen(false) }>Search</NavLink>
+                    <NavLink 
+                        className={({ isActive }) => isActive ? active : base } 
+                        to='/about'
+                        onClick={() => setMenuOpen(false) }>About</NavLink>
+                    <NavLink 
+                        className={({ isActive }) => isActive ? active : base } 
+                        to='/contact'
+                        onClick={() => setMenuOpen(false) }>Contact</NavLink>
+                </div>
+
+            )
+        }
         </div>
     </nav>
       );
