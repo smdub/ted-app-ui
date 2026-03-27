@@ -56,6 +56,8 @@ export type Notice = {
     procedureDescription: string;
     noticeTitle: string;
     linkEngPDF: string;
+    linkEngXML: string;
+    linkEngHtml: string;
     totalValue: number;
     publicationDate: Date;
 }
