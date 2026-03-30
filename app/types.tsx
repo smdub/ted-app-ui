@@ -1,19 +1,24 @@
+export type Response = {
+    isSuccess?: boolean;
+    message?: string;
+}
+
 export type EntityResponse = {
-    id: string; 
-    name: string;
-    activityType: {
+    id?: string; 
+    name?: string;
+    activityType?: {
         id: string;
         code: string;
     }
-    country: {
+    country?: {
         id: string;
         name: string;
     }
-    city: {
+    city?: {
         id: string;
         name: string;
     }    
-    noticeGroups: Array<NoticeGroup>;
+    noticeGroups?: Array<NoticeGroup>;
 }
 
 export type EntitiesResponse = Array<Entity>;

@@ -35,13 +35,19 @@ export const loadEntity = async (entityId: string): Promise<EntityDetails> => {
 }   
 
 export const loadEntities = async (): Promise<EntitiesResponse> => {
-    const response = await fetch(`${import.meta.env.VITE_TEDAPI_URL}/entity`);
-    if (!response.ok){
-        throw new Error(`HTTP error! status: ${response.status}`);        
+    try {
+        const response = await fetch(`${import.meta.env.VITE_TEDAPI_URL}/entity`);        
+        if (!response.ok){
+            throw new Error(`HTTP error! status: ${response.status}`);        
+        }
+        const data: EntitiesResponse = await response.json();
+        console.log (data);            
+        return data;        
+    } catch (err)
+    {
+        console.error(err);        
+        return [];
     }
-    const data: EntitiesResponse = await response.json();
-    console.log (data);    
     
-    return data;
 }   
 
